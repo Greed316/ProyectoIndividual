@@ -2,21 +2,11 @@
 
 # <h1 align=center> **PROYECTO INDIVIDUAL Nº1** </h1>
 
-# <h1 align=center>**`Data Engineering`**</h1>
+# <h1 align=center>**`"MLOps Engineer" (Data Engineer & Machine Learning)`**</h1>
 
 # <h1 align=center>**`Por JAVIER HORACIO VILCA MARTINEZ`**</h1>
 
 
-
-
-
-## **Descripción del problema (Contexto y rol a desarrollar)**
-
-## Contexto
-
-En el proyecto  se nos pide desarrollar una interfaz que permita que dos aplicaciones se comuniquen entre si por medio de una Api para la cual se nos recomendó utilizar el framework FastApi que permite construir Apis de alto rendimiento con Python para lo cual a los datos brindados se tendrán que aplicar transformaciones para luego los datos estén disponibles para su uso median la Api.
-<p align=center>
-<img src = 'https://camillovisini.com/assets/d8BwM0o5tE-600.ef9c55f8.jpeg' height=300><p>
 
 
 
@@ -29,13 +19,43 @@ Comenzando con la limpieza de los datos creamos las variables necesarias para po
 
 + Creamos la columna ID con los requerimientos pedidos
 
+<p align=center>
+<<img src = 'img/1.png' ><p>
+
+
+<br/>
+
 + Reemplazamos valores nulos de la columna rating por G
+
+<p align=center>
+<<img src = 'img/2.png' ><p>
+
+
+<br/>
 
 + Cambiamos el formato de los datos de la columna date_added que es de tipo datetime
 
+<p align=center>
+<<img src = 'img/3.png' ><p>
+
+
+<br/>
+
 + Los campos de tipo texto se transformaron en **minúsculas**, en todas las columnas
 
+<p align=center>
+<<img src = 'img/4.png' ><p>
+
+
+<br/>
+
 + Separamos la columna duration en dos columnas duration_int donde ingresaremos los valores numéricos y duration_type su tipo de duración
+
+<p align=center>
+<<img src = 'img/5.png' ><p>
+
+
+<br/>
 
 <p align=center>
 <<img src = 'https://learn.microsoft.com/es-es/azure/architecture/data-guide/images/etl.png' height=300><p>
@@ -48,13 +68,53 @@ dentro del archivo importamos las librerías necesarias para poder realizar las 
 fastapi que es el framework, pandas que utilizaremos para trabajar con dataframes, RedirectResponse que usamos para redireccionar
 Creamos el objeto y a continuación creamos las rutas y las funciones que responden a las rutas solicitadas dentro de las mismas tenemos:
 
-+ Pelicula con mayor duracion
++ Película (sólo película, no serie, etc) con mayor duración según año, plataforma y tipo de duración
 
-+ Obtener la cantidad de películas que tengan un puntaje, plataforma y año especifico
+<p align=center>
+<<img src = 'img/6.png' ><p>
 
-+ Cantidad de peliculas por plataforma
+
+<br/>
+
++ Cantidad de películas  según plataforma, con un puntaje mayor a XX en determinado año
+
+<p align=center>
+<<img src = 'img/7.png' ><p>
+
+
+<br/>
+
++ Cantidad de películas según plataforma
+
+<p align=center>
+<<img src = 'img/8.png' ><p>
+
+
+<br/>
 
 + Actor que más se repite según plataforma y año.
+
+<p align=center>
+<<img src = 'img/9.png' ><p>
+
+
+<br/>
+
++ La cantidad de contenidos/productos que se publicó por país y año.
+
+<p align=center>
+<<img src = 'img/10.png' ><p>
+
+
+<br/>
+
++ La cantidad total de contenidos/productos según el rating de audiencia .
+
+<p align=center>
+<<img src = 'img/11.png' ><p>
+
+
+<br/>
 
 <p align=center><<img src = 'https://amalgjose.files.wordpress.com/2021/02/fast_api_ppt.png' height=300><p>
 <br/>
@@ -92,12 +152,52 @@ Podemos observar el informe que obtenemos al usar la herramienta pandas profilin
 
 ## **Sistema de recomendación:**
 
-Para el sistema de recomendacion se utilizo el modelo de aprendizaje SGD que es de los mas utilizados en el uso de modelos para recomendacion y gradio para su visualizacion.
+Cargar el dataset que contiene información sobre las películas y las puntuaciones de los usuarios.
+<p align=center>
+<<img src = 'img/12.png' ><p>
+
+<br/>
+<p align=center>
+<<img src = 'img/13.png' ><p>
+
+<br/>
+<p align=center>
+<<img src = 'img/14.png' ><p>
+
+<br/>
+
+Calcular la matriz de similitud entre las películas basándose en las puntuaciones de los usuarios. Para ello, se puede utilizar una técnica como el cosine similarity.
+
+<p align=center>
+<<img src = 'img/15.png' ><p>
+
+<br/>
+<p align=center>
+<<img src = 'img/16.png' ><p>
+
+<br/>
+<p align=center>
+<<img src = 'img/17.png' ><p>
+
+<br/>
+
+<br/>
+<p align=center>
+<<img src = 'img/18.png' ><p>
+
+<br/>
+
+Definir la función get_recommendation(titulo: str) que tomará como entrada el título de la película y devolverá una lista con las 5 películas más recomendadas.
+
+
 
 
 <br/>
 
-<p align=center><<img src = 'https://i.ytimg.com/vi/RiCQzBluTxU/maxresdefault.jpg' height=300><p>
+<p align=center><<img src = 'img/19.png'><p>
 <br/>
 
 
+______
+La parte de ML tuve problemas con el render y para que la api funcionara de la mejor manera esta el codigo sin implementacion
+______
